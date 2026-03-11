@@ -1,0 +1,223 @@
+{
+  "exam": "RBI Grade B Officer",
+  "phase": "Mains (Phase 2)",
+  "reference_books": [
+    "Economic Survey of India",
+    "World Development Report",
+    "RBI Annual Report",
+    "RBI Monetary Policy Report",
+    "Trend and Progress of Banking in India",
+    "Standard Finance & Management books for RBI Grade B"
+  ],
+  "sections": [
+    {
+      "name": "Economic and Social Issues (ESI)",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "Growth and Development",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "National income",
+            "Per capita income",
+            "Poverty alleviation",
+            "Employment generation",
+            "Sustainable development",
+            "Environmental issues"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Economic Reforms",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Industrial and labour policy",
+            "Monetary and fiscal policy",
+            "Privatisation",
+            "Economic planning"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Globalisation",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Opening of Indian economy",
+            "Balance of payments",
+            "Export–import policy",
+            "IMF, World Bank, WTO"
+          ]
+        },
+        {
+          "number": 4,
+          "topic": "Social Structure",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Multiculturalism",
+            "Demographic trends",
+            "Urbanisation",
+            "Migration",
+            "Gender issues",
+            "Social justice",
+            "Social movements",
+            "Human development",
+            "Health and education"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "English (Writing Skills)",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "Precis Writing",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Summarising passages",
+            "Condensing main ideas",
+            "Word limit adherence"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Reading Comprehension",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Passage-based comprehension",
+            "Inference",
+            "Vocabulary in context",
+            "Main idea and supporting details"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Essay",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Economic topics",
+            "Social topics",
+            "General topics",
+            "Structure (introduction, body, conclusion)",
+            "Expression and coherence"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Finance and Management",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "Finance - Financial System",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "RBI functions",
+            "Monetary policy",
+            "Banking system",
+            "Financial institutions (SIDBI, EXIM, NABARD, NHB)"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Finance - Financial Markets",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Money market",
+            "Forex market",
+            "Bond market",
+            "Equity market",
+            "Primary and secondary markets",
+            "Recent developments"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Finance - General Topics",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Fintech",
+            "Inflation (WPI, CPI)",
+            "Union Budget",
+            "Direct and indirect taxes",
+            "GST",
+            "Fiscal policy",
+            "Corporate governance",
+            "Financial inclusion",
+            "Derivatives",
+            "Risk management"
+          ]
+        },
+        {
+          "number": 4,
+          "topic": "Management - Fundamentals",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Fundamentals of management",
+            "Organisational behaviour",
+            "Evolution of management thought (scientific, administrative, human relations, systems approach)"
+          ]
+        },
+        {
+          "number": 5,
+          "topic": "Management - Organisational Behaviour",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Personality",
+            "Motivation theories (Maslow, Herzberg, Adams, Vroom)",
+            "Leadership",
+            "Communication",
+            "Conflict and negotiation"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DEPR/DSIM (Optional reference)",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "Microeconomics",
+          "used_for_study_material": false,
+          "sub_topics": ["Hal Varian", "Snyder and W. Nicholson", "H.L. Ahuja"]
+        },
+        {
+          "number": 2,
+          "topic": "Macroeconomics",
+          "used_for_study_material": false,
+          "sub_topics": ["Rudiger Dornbusch", "Richard Froyen", "Mankiw", "O. Blanchard"]
+        },
+        {
+          "number": 3,
+          "topic": "Statistics",
+          "used_for_study_material": false,
+          "sub_topics": ["Jay L. Devore", "Miller and Miller"]
+        },
+        {
+          "number": 4,
+          "topic": "Mathematics",
+          "used_for_study_material": false,
+          "sub_topics": ["K. Sydsaeter and P. Hammond", "Alpha C. Chiang and Kevin Wainwright"]
+        },
+        {
+          "number": 5,
+          "topic": "Econometrics",
+          "used_for_study_material": false,
+          "sub_topics": ["D. N. Gujarati", "Jeffrey M. Wooldridge"]
+        },
+        {
+          "number": 6,
+          "topic": "International Economics",
+          "used_for_study_material": false,
+          "sub_topics": ["D. Salvatore"]
+        },
+        {
+          "number": 7,
+          "topic": "Growth & Development",
+          "used_for_study_material": false,
+          "sub_topics": ["Debraj Ray", "M.L. Jhingan"]
+        }
+      ]
+    }
+  ]
+}

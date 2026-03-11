@@ -1,0 +1,483 @@
+{
+  "exam": "RBI Assistant",
+  "phase": "Prelims",
+  "reference_books": [
+    "SP Bakshi - Objective General English (Arihant)",
+    "RS Aggarwal - Quantitative Aptitude (S. Chand)",
+    "Fast Track Objective Arithmetic - Rajesh Varma (Arihant)",
+    "BS Sijwali - A New Approach to Reasoning (Arihant)"
+  ],
+  "sections": [
+    {
+      "name": "English Language",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "Comprehension",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Reading comprehension",
+            "Objective comprehension",
+            "Inference",
+            "Main idea",
+            "Vocabulary in context"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Subject Verb Agreement",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Number",
+            "Person",
+            "Collective nouns",
+            "Indefinite pronouns",
+            "Compound subjects"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Cloze Test",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Fill in the blanks (single/multiple)",
+            "Context-based word choice"
+          ]
+        },
+        {
+          "number": 4,
+          "topic": "Sentence Rearrangement",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Jumbled sentences/paragraphs",
+            "Sequence of sentences",
+            "Connectors"
+          ]
+        },
+        {
+          "number": 5,
+          "topic": "Tenses",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Present, past, future (simple, continuous, perfect, perfect continuous)"
+          ]
+        },
+        {
+          "number": 6,
+          "topic": "Synonyms & Antonyms",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Vocabulary",
+            "Word meaning",
+            "Contextual usage"
+          ]
+        },
+        {
+          "number": 7,
+          "topic": "Spelling Correction",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Commonly misspelt words",
+            "Spelling rules"
+          ]
+        },
+        {
+          "number": 8,
+          "topic": "One-word Substitution",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Single word for phrase",
+            "Foreign words and expressions"
+          ]
+        },
+        {
+          "number": 9,
+          "topic": "Sentence Completion",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Fillers",
+            "Sentence improvement",
+            "Selecting correct sentence"
+          ]
+        },
+        {
+          "number": 10,
+          "topic": "Direct & Indirect Speech",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Narration",
+            "Reported speech",
+            "Transformation"
+          ]
+        },
+        {
+          "number": 11,
+          "topic": "Grammar",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Articles",
+            "Modals",
+            "Parts of Speech",
+            "Active & Passive Voice",
+            "Kinds of Sentences and Clauses",
+            "Spotting Errors",
+            "Punctuation",
+            "Contractions"
+          ]
+        },
+        {
+          "number": 12,
+          "topic": "Verbal",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Paronyms & Homonyms",
+            "Idioms & Phrases"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Numerical Ability",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "Profit and Loss",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "CP, SP",
+            "Profit/loss %",
+            "Discount",
+            "Marked price",
+            "Successive discount"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Data Interpretation",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Tables",
+            "Bar graphs",
+            "Pie charts",
+            "Line graphs",
+            "Caselets",
+            "Mixed DI"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Quadratic Equation",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Roots",
+            "Comparison of roots",
+            "Condition for roots",
+            "Word problems"
+          ]
+        },
+        {
+          "number": 4,
+          "topic": "Number Series",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Wrong number series",
+            "Missing number",
+            "Pattern-based series"
+          ]
+        },
+        {
+          "number": 5,
+          "topic": "Algebra",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Linear equations",
+            "Identities",
+            "Simplification of expressions"
+          ]
+        },
+        {
+          "number": 6,
+          "topic": "Averages",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Mean",
+            "Weighted average",
+            "Age-based problems"
+          ]
+        },
+        {
+          "number": 7,
+          "topic": "Percentages",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Conversion",
+            "Increase/decrease",
+            "Population",
+            "Application"
+          ]
+        },
+        {
+          "number": 8,
+          "topic": "Mensuration 2D",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Area and perimeter of square, rectangle, circle, triangle, parallelogram"
+          ]
+        },
+        {
+          "number": 9,
+          "topic": "Interest",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Simple interest",
+            "Compound interest",
+            "Instalments"
+          ]
+        },
+        {
+          "number": 10,
+          "topic": "Simplification",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "BODMAS",
+            "Brackets",
+            "Surds",
+            "Decimals"
+          ]
+        },
+        {
+          "number": 11,
+          "topic": "Ratio & Proportion",
+          "used_for_study_material": false,
+          "sub_topics": ["Ratio", "Proportion", "Proportional division"]
+        },
+        {
+          "number": 12,
+          "topic": "Time & Work",
+          "used_for_study_material": false,
+          "sub_topics": ["Work efficiency", "Man-days", "Work and wages"]
+        },
+        {
+          "number": 13,
+          "topic": "Time & Distance",
+          "used_for_study_material": false,
+          "sub_topics": ["Speed", "Relative speed", "Trains", "Average speed"]
+        },
+        {
+          "number": 14,
+          "topic": "Boats & Streams",
+          "used_for_study_material": false,
+          "sub_topics": ["Upstream", "Downstream", "Speed in still water", "Current"]
+        },
+        {
+          "number": 15,
+          "topic": "Pipes & Cisterns",
+          "used_for_study_material": false,
+          "sub_topics": ["Inlet", "Outlet", "Filling and emptying"]
+        },
+        {
+          "number": 16,
+          "topic": "Number System",
+          "used_for_study_material": false,
+          "sub_topics": ["Place value", "Divisibility", "Prime numbers", "LCM and HCF basics"]
+        },
+        {
+          "number": 17,
+          "topic": "HCF & LCM",
+          "used_for_study_material": false,
+          "sub_topics": ["Highest common factor", "Least common multiple", "Application in word problems"]
+        },
+        {
+          "number": 18,
+          "topic": "Problem on Ages",
+          "used_for_study_material": false,
+          "sub_topics": ["Present age", "Past/future age", "Ratio of ages"]
+        },
+        {
+          "number": 19,
+          "topic": "Partnership",
+          "used_for_study_material": false,
+          "sub_topics": ["Profit sharing", "Capital ratio", "Time and investment"]
+        },
+        {
+          "number": 20,
+          "topic": "Data Sufficiency",
+          "used_for_study_material": false,
+          "sub_topics": ["Statement adequacy", "Two statements", "Quantitative reasoning"]
+        }
+      ]
+    },
+    {
+      "name": "Reasoning Ability",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "Odd Man Out",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Classification",
+            "Verbal and non-verbal",
+            "Figure series"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Blood Relation",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Family tree",
+            "Coded relations",
+            "Generation-based"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Coding and Decoding",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Letter/number coding",
+            "Conditional coding",
+            "Matrix coding"
+          ]
+        },
+        {
+          "number": 4,
+          "topic": "Analogy",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Verbal analogy",
+            "Alphabetical analogy",
+            "Number analogy"
+          ]
+        },
+        {
+          "number": 5,
+          "topic": "Direction Based questions",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Direction sense test",
+            "Distance",
+            "Shadow-based"
+          ]
+        },
+        {
+          "number": 6,
+          "topic": "Seating Arrangements",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Linear",
+            "Circular",
+            "Rectangular",
+            "Facing in/out",
+            "Order-based"
+          ]
+        },
+        {
+          "number": 7,
+          "topic": "Symbols",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Symbol substitution",
+            "Symbol notation",
+            "Inequalities"
+          ]
+        },
+        {
+          "number": 8,
+          "topic": "Number Series",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Numerical series",
+            "Letter series",
+            "Alphanumeric"
+          ]
+        },
+        {
+          "number": 9,
+          "topic": "Syllogism",
+          "used_for_study_material": false,
+          "sub_topics": ["Categorical statements", "Conclusions", "Valid/invalid inference"]
+        },
+        {
+          "number": 10,
+          "topic": "Logic-based Venn diagrams",
+          "used_for_study_material": false,
+          "sub_topics": ["Set relationships", "Overlapping sets", "Logical deduction"]
+        },
+        {
+          "number": 11,
+          "topic": "Input-Output",
+          "used_for_study_material": false,
+          "sub_topics": ["Machine input", "Shifting", "Arrangement based on rules"]
+        },
+        {
+          "number": 12,
+          "topic": "Clocks",
+          "used_for_study_material": false,
+          "sub_topics": ["Angle between hands", "Time calculation", "Gain and loss"]
+        },
+        {
+          "number": 13,
+          "topic": "Calendar",
+          "used_for_study_material": false,
+          "sub_topics": ["Day calculation", "Odd days", "Leap year"]
+        },
+        {
+          "number": 14,
+          "topic": "Statement & Arguments",
+          "used_for_study_material": false,
+          "sub_topics": ["Strong/weak arguments", "Relevance", "Conclusion"]
+        },
+        {
+          "number": 15,
+          "topic": "Statement & Assumptions",
+          "used_for_study_material": false,
+          "sub_topics": ["Implicit assumptions", "Valid assumption", "Invalid assumption"]
+        },
+        {
+          "number": 16,
+          "topic": "Course of Action",
+          "used_for_study_material": false,
+          "sub_topics": ["Suggested action", "Feasibility", "Logical follow-up"]
+        },
+        {
+          "number": 17,
+          "topic": "Cause & Effect",
+          "used_for_study_material": false,
+          "sub_topics": ["Cause-effect relationship", "Independent statements", "Effect-cause"]
+        },
+        {
+          "number": 18,
+          "topic": "Decision Making",
+          "used_for_study_material": false,
+          "sub_topics": ["Situation analysis", "Option evaluation", "Best course"]
+        },
+        {
+          "number": 19,
+          "topic": "Puzzles",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Order ranking",
+            "Scheduling",
+            "Floor-based",
+            "Box-based",
+            "Comparison"
+          ]
+        },
+        {
+          "number": 20,
+          "topic": "Non-Verbal Reasoning",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Figure analogy",
+            "Classification",
+            "Series",
+            "Cubes and dice",
+            "Mirror/water images",
+            "Embedded figures"
+          ]
+        }
+      ]
+    }
+  ]
+}

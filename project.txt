@@ -1,0 +1,422 @@
+Below is a **clear step-by-step plan** to build your **AI study agent with n8n and deploy it on Railway** so it runs **24/7 for your exam prep** without your Mac staying on. 🚀
+
+---
+
+# Phase 1 — Create the Agent Locally
+
+First build and test everything locally, then deploy.
+
+---
+
+## Step 1 — Install Docker
+
+Install **Docker**.
+
+Mac:
+
+```bash
+brew install --cask docker
+```
+
+Verify:
+
+```bash
+docker --version
+```
+
+---
+
+## Step 2 — Run n8n Locally
+
+Run the container.
+
+```bash
+docker run -it --rm \
+-p 5678:5678 \
+-v ~/.n8n:/home/node/.n8n \
+n8nio/n8n
+```
+
+Open:
+
+```
+http://localhost:5678
+```
+
+Create your n8n account.
+
+---
+
+# Phase 2 — Build the Study Agent Workflow
+
+Now create the automation.
+
+---
+
+# Step 3 — Create Syllabus Topic Source
+
+Inside n8n create a **Set node**.
+
+Example topics:
+
+```json
+[
+ "Economic Growth",
+ "Human Development Index",
+ "Inflation",
+ "Monetary Policy",
+ "Poverty Alleviation"
+]
+```
+
+Later you can store this in:
+
+* Google Sheet
+* Notion
+* JSON file
+
+---
+
+# Step 4 — Add Daily Scheduler
+
+Add node:
+
+```
+Cron
+```
+
+Configuration:
+
+```
+Mode: Every Day
+Time: 06:00
+```
+
+This triggers the workflow daily.
+
+---
+
+# Step 5 — Pick Next Topic
+
+Add **Code Node**.
+
+Example:
+
+```javascript
+const topics = [
+ "Economic Growth",
+ "Human Development Index",
+ "Inflation",
+ "Monetary Policy"
+];
+
+const index = new Date().getDate() % topics.length;
+
+return [{ topic: topics[index] }];
+```
+
+This rotates topics daily.
+
+---
+
+# Step 6 — Generate Study Material
+
+Add **OpenAI / LLM node**.
+
+Prompt:
+
+```
+You are an RBI Grade B exam mentor.
+
+Generate detailed study material for:
+
+Topic: {{$json.topic}}
+
+Structure the content:
+
+1 Concept explanation
+2 Important definitions
+3 Real world examples
+4 Current affairs connection
+5 RBI exam important points
+6 Summary
+```
+
+---
+
+# Step 7 — Generate MCQs
+
+Add another LLM node.
+
+Prompt:
+
+```
+Generate 10 RBI Grade B MCQs for topic:
+
+{{$json.topic}}
+
+Format:
+
+Question
+4 options
+Correct answer
+Explanation
+```
+
+---
+
+# Step 8 — Send Output to Telegram
+
+Create a bot in **Telegram**.
+
+Use **Telegram node**.
+
+Message template:
+
+```
+📚 RBI Study Topic
+
+Topic: {{$json.topic}}
+
+Study Notes:
+{{$json.notes}}
+
+MCQs:
+{{$json.mcqs}}
+```
+
+Now every day you receive study material on phone.
+
+---
+
+# Phase 3 — Prepare for Railway Deployment
+
+Now package the system.
+
+---
+
+# Step 9 — Create GitHub Repository
+
+Create repo:
+
+```
+rbi-study-agent
+```
+
+Structure:
+
+```
+rbi-study-agent
+ ├ docker-compose.yml
+ ├ .env
+ └ README.md
+```
+
+---
+
+# Step 10 — Create Docker Compose
+
+Create:
+
+```
+docker-compose.yml
+```
+
+```yaml
+version: "3"
+
+services:
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
+```
+
+---
+
+# Phase 4 — Deploy to Railway
+
+Now deploy.
+
+---
+
+## Step 11 — Create Railway Account
+
+Sign up:
+
+```
+railway.app
+```
+
+Login with GitHub.
+
+---
+
+## Step 12 — Create New Project
+
+Click:
+
+```
+New Project
+```
+
+Select:
+
+```
+Deploy from GitHub repo
+```
+
+Choose:
+
+```
+rbi-study-agent
+```
+
+---
+
+## Step 13 — Configure Service
+
+Railway automatically detects Docker.
+
+Add environment variables:
+
+```
+N8N_HOST=0.0.0.0
+N8N_PORT=5678
+N8N_PROTOCOL=https
+```
+
+Add your API keys:
+
+```
+OPENAI_API_KEY
+```
+
+---
+
+## Step 14 — Add Persistent Volume
+
+Important so your workflows are saved.
+
+Railway → Service → Volumes
+
+Mount path:
+
+```
+/home/node/.n8n
+```
+
+---
+
+## Step 15 — Deploy
+
+Click:
+
+```
+Deploy
+```
+
+After deployment Railway gives URL:
+
+```
+https://your-app.up.railway.app
+```
+
+Open it.
+
+Login to n8n.
+
+Your workflow will run automatically.
+
+---
+
+# Phase 5 — Activate Automation
+
+Final step.
+
+Inside n8n:
+
+```
+Activate Workflow
+```
+
+Now:
+
+```
+Every day at 6 AM
+↓
+AI generates study material
+↓
+Telegram message arrives
+```
+
+Fully automated.
+
+---
+
+# Final System Architecture
+
+```
+Railway Server
+      │
+      ▼
+n8n Automation
+      │
+      ▼
+LLM API
+      │
+      ▼
+Generate Study Material
+      │
+      ▼
+Telegram Delivery
+```
+
+Your **AI teacher runs 24/7 in the cloud**.
+
+---
+
+# Expected Cost
+
+| Component      | Cost                |
+| -------------- | ------------------- |
+| Railway server | ~$5/month           |
+| LLM API        | ~$1/month           |
+| Total          | **₹450–₹550/month** |
+
+---
+
+💡 **Important upgrade you should consider**
+
+Instead of random topic rotation, build a **smart AI planner**:
+
+```
+AI reads syllabus
+↓
+creates 30-day study schedule
+↓
+generates daily study pack
+↓
+tracks revision automatically
+```
+
+This makes the system **10x more effective for exam prep**.
+
+---
+
+If you want, I can also show you **a much smarter architecture** where the agent automatically:
+
+* reads syllabus PDFs
+* breaks them into **100+ micro topics**
+* builds **30-day optimized study plan**
+* generates **notes + MCQs + revision schedule**
+
+That version is **far more powerful than the basic workflow**.
