@@ -1,0 +1,729 @@
+{
+  "name": "RBI Assistant Study Material Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 24
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cron Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        320
+      ],
+      "webhookId": ""
+    },
+    {
+      "parameters": {
+        "jsCode": "// RBI Assistant Prelims syllabus (from syllabus/rbi-assistant/rbi_assistant_prelims.json)\n// No Google Sheet needed. To change topics, edit this array or replace with HTTP Request to your JSON.\nconst SYLLABUS_ITEMS = [\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Comprehension\",\n    \"Subtopics\": \"Reading comprehension, Objective comprehension, Inference, Main idea, Vocabulary in context\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Subject Verb Agreement\",\n    \"Subtopics\": \"Number, Person, Collective nouns, Indefinite pronouns, Compound subjects\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Cloze Test\",\n    \"Subtopics\": \"Fill in the blanks (single/multiple), Context-based word choice\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Sentence Rearrangement\",\n    \"Subtopics\": \"Jumbled sentences/paragraphs, Sequence of sentences, Connectors\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Tenses\",\n    \"Subtopics\": \"Present, past, future (simple, continuous, perfect, perfect continuous)\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Synonyms & Antonyms\",\n    \"Subtopics\": \"Vocabulary, Word meaning, Contextual usage\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Spelling Correction\",\n    \"Subtopics\": \"Commonly misspelt words, Spelling rules\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"One-word Substitution\",\n    \"Subtopics\": \"Single word for phrase, Foreign words and expressions\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Sentence Completion\",\n    \"Subtopics\": \"Fillers, Sentence improvement, Selecting correct sentence\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Direct & Indirect Speech\",\n    \"Subtopics\": \"Narration, Reported speech, Transformation\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Grammar\",\n    \"Subtopics\": \"Articles, Modals, Parts of Speech, Active & Passive Voice, Kinds of Sentences and Clauses, Spotting Errors, Punctuation, Contractions\"\n  },\n  {\n    \"Section\": \"English Language\",\n    \"Topic\": \"Verbal\",\n    \"Subtopics\": \"Paronyms & Homonyms, Idioms & Phrases\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Profit and Loss\",\n    \"Subtopics\": \"CP, SP, Profit/loss %, Discount, Marked price, Successive discount\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Data Interpretation\",\n    \"Subtopics\": \"Tables, Bar graphs, Pie charts, Line graphs, Caselets, Mixed DI\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Quadratic Equation\",\n    \"Subtopics\": \"Roots, Comparison of roots, Condition for roots, Word problems\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Number Series\",\n    \"Subtopics\": \"Wrong number series, Missing number, Pattern-based series\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Algebra\",\n    \"Subtopics\": \"Linear equations, Identities, Simplification of expressions\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Averages\",\n    \"Subtopics\": \"Mean, Weighted average, Age-based problems\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Percentages\",\n    \"Subtopics\": \"Conversion, Increase/decrease, Population, Application\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Mensuration 2D\",\n    \"Subtopics\": \"Area and perimeter of square, rectangle, circle, triangle, parallelogram\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Interest\",\n    \"Subtopics\": \"Simple interest, Compound interest, Instalments\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Simplification\",\n    \"Subtopics\": \"BODMAS, Brackets, Surds, Decimals\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Ratio & Proportion\",\n    \"Subtopics\": \"Ratio, Proportion, Proportional division\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Time & Work\",\n    \"Subtopics\": \"Work efficiency, Man-days, Work and wages\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Time & Distance\",\n    \"Subtopics\": \"Speed, Relative speed, Trains, Average speed\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Boats & Streams\",\n    \"Subtopics\": \"Upstream, Downstream, Speed in still water, Current\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Pipes & Cisterns\",\n    \"Subtopics\": \"Inlet, Outlet, Filling and emptying\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Number System\",\n    \"Subtopics\": \"Place value, Divisibility, Prime numbers, LCM and HCF basics\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"HCF & LCM\",\n    \"Subtopics\": \"Highest common factor, Least common multiple, Application in word problems\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Problem on Ages\",\n    \"Subtopics\": \"Present age, Past/future age, Ratio of ages\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Partnership\",\n    \"Subtopics\": \"Profit sharing, Capital ratio, Time and investment\"\n  },\n  {\n    \"Section\": \"Quantitative Aptitude\",\n    \"Topic\": \"Data Sufficiency\",\n    \"Subtopics\": \"Statement adequacy, Two statements, Quantitative reasoning\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Odd Man Out\",\n    \"Subtopics\": \"Classification, Verbal and non-verbal, Figure series\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Blood Relation\",\n    \"Subtopics\": \"Family tree, Coded relations, Generation-based\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Coding and Decoding\",\n    \"Subtopics\": \"Letter/number coding, Conditional coding, Matrix coding\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Analogy\",\n    \"Subtopics\": \"Verbal analogy, Alphabetical analogy, Number analogy\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Direction Based questions\",\n    \"Subtopics\": \"Direction sense test, Distance, Shadow-based\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Seating Arrangements\",\n    \"Subtopics\": \"Linear, Circular, Rectangular, Facing in/out, Order-based\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Symbols\",\n    \"Subtopics\": \"Symbol substitution, Symbol notation, Inequalities\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Number Series\",\n    \"Subtopics\": \"Numerical series, Letter series, Alphanumeric\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Syllogism\",\n    \"Subtopics\": \"Categorical statements, Conclusions, Valid/invalid inference\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Logic-based Venn diagrams\",\n    \"Subtopics\": \"Set relationships, Overlapping sets, Logical deduction\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Input-Output\",\n    \"Subtopics\": \"Machine input, Shifting, Arrangement based on rules\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Clocks\",\n    \"Subtopics\": \"Angle between hands, Time calculation, Gain and loss\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Calendar\",\n    \"Subtopics\": \"Day calculation, Odd days, Leap year\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Statement & Arguments\",\n    \"Subtopics\": \"Strong/weak arguments, Relevance, Conclusion\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Statement & Assumptions\",\n    \"Subtopics\": \"Implicit assumptions, Valid assumption, Invalid assumption\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Course of Action\",\n    \"Subtopics\": \"Suggested action, Feasibility, Logical follow-up\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Cause & Effect\",\n    \"Subtopics\": \"Cause-effect relationship, Independent statements, Effect-cause\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Decision Making\",\n    \"Subtopics\": \"Situation analysis, Option evaluation, Best course\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Puzzles\",\n    \"Subtopics\": \"Order ranking, Scheduling, Floor-based, Box-based, Comparison\"\n  },\n  {\n    \"Section\": \"Reasoning Ability\",\n    \"Topic\": \"Non-Verbal Reasoning\",\n    \"Subtopics\": \"Figure analogy, Classification, Series, Cubes and dice, Mirror/water images, Embedded figures\"\n  }\n];\nreturn SYLLABUS_ITEMS.map(item => ({ json: item }));"
+      },
+      "id": "get-syllabus",
+      "name": "Get Syllabus",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize syllabus rows: ensure Section, Topic, Subtopics (string)\nconst items = $input.all();\nreturn items.map(item => {\n  const j = item.json;\n  const section = j.Section || j.section || '';\n  const topic = j.Topic || j.topic || '';\n  let subtopics = j.Subtopics ?? j['Sub topics'] ?? j.sub_topics ?? '';\n  if (Array.isArray(subtopics)) subtopics = subtopics.join(', ');\n  return { json: { Section: section, Topic: topic, Subtopics: String(subtopics) } };\n});"
+      },
+      "id": "prepare-topics",
+      "name": "Prepare Topics",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "split-in-batches",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        720,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "type": "string"
+                },
+                "conditions": [
+                  {
+                    "id": "cond-qa",
+                    "leftValue": "={{ $json.Section }}",
+                    "rightValue": "Quantitative Aptitude",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Quantitative Aptitude"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "type": "string"
+                },
+                "conditions": [
+                  {
+                    "id": "cond-ra",
+                    "leftValue": "={{ $json.Section }}",
+                    "rightValue": "Reasoning Ability",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Reasoning Ability"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "type": "string"
+                },
+                "conditions": [
+                  {
+                    "id": "cond-el",
+                    "leftValue": "={{ $json.Section }}",
+                    "rightValue": "English Language",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "English Language"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "type": "string"
+                },
+                "conditions": [
+                  {
+                    "id": "cond-ga",
+                    "leftValue": "={{ $json.Section }}",
+                    "rightValue": "General Awareness",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "General Awareness"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "type": "string"
+                },
+                "conditions": [
+                  {
+                    "id": "cond-ck",
+                    "leftValue": "={{ $json.Section }}",
+                    "rightValue": "Computer Knowledge",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Computer Knowledge"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "switch-section",
+      "name": "Switch (Section Prompt)",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        960,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const PROMPT = `You are an expert RBI Assistant Prelims Quantitative Aptitude mentor and exam-content creator.\n\nGenerate exam-ready study material in clean Markdown for:\n- Section: {{section}}\n- Topic: {{topic}}\n- Subtopics: {{subtopics}}\n\nTarget exam: RBI Assistant Prelims (also aligned with IBPS-level patterns for similar difficulty).\nAudience: Beginner to intermediate aspirants.\nObjective: Maximize speed + accuracy with high-yield concepts only.\n\nNon-negotiable quality rules:\n1) Keep explanations simple but exam-oriented.\n2) Avoid unnecessary theory; focus on what is repeatedly asked in bank exams.\n3) Include practical shortcuts, approximation methods, and mental math wherever relevant.\n4) Use examples similar to RBI Assistant / IBPS Prelims question style.\n5) Ensure all calculations and final answers are accurate.\n6) Tone should be teacher-like, concise, and actionable.\n\nOutput format (must follow exactly):\n\n# {{topic}}\n\n## Concept Explanation\n- Explain the topic from basics in easy language.\n- Connect each concept to how it appears in RBI Assistant questions.\n\n## Key Concepts / Rules\n- List formulas, rules, and patterns needed for solving questions fast.\n- Add only exam-relevant points.\n\n## Shortcuts and Tricks\n- Provide quick methods, elimination strategies, approximation logic, and calculation hacks.\n- Mention when to use each trick and when to avoid it.\n\n## Solved Examples\n- Provide 5 solved examples (mixed easy to moderate RBI Assistant level).\n- For each example: Question -> Fast approach -> Step-by-step solution -> Final answer.\n\n## Common Mistakes\n- List at least 8 frequent errors students make in this topic.\n- Add a one-line prevention tip for each mistake.\n\n## Memory Techniques / Mnemonics\n- Provide useful mnemonics or recall cues for formulas/rules (if applicable).\n\n## Flashcards\n- Create 12 concise flashcards in Q/A format for quick revision.\n\n## MCQs\n- Create 15-20 multiple-choice questions at RBI Assistant Prelims difficulty.\n- Mix direct, concept-based, and speed-based questions.\n- Provide 4 options (A/B/C/D) per question.\n\n### Answer Key with Explanations\n- Give the correct option for every question.\n- Provide short, clear explanation/working for each answer.\n- Mention quickest valid method where possible.\n\nAdditional constraints:\n- Do not repeat the same question type excessively.\n- Keep numericals realistic and exam-like.\n- Prioritize arithmetic-heavy high-weightage styles (percentages, ratio-proportion, profit-loss, SI-CI, averages, time-work, time-speed-distance, simplification/approximation, number series, DI basics) when relevant to {{topic}} and {{subtopics}}.`;\nreturn $input.all().map(item => ({ json: { ...item.json, sectionPrompt: PROMPT } }));"
+      },
+      "id": "set-prompt-qa",
+      "name": "Set Prompt QA",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const PROMPT = `You are an expert RBI Assistant Prelims Reasoning mentor and banking exam content creator.\n\nGenerate exam-ready study material in clean Markdown for:\n- Section: {{section}}\n- Topic: {{topic}}\n- Subtopics: {{subtopics}}\n\nTarget exam: RBI Assistant Prelims (with IBPS-style reasoning patterns where relevant).\nAudience: Beginner to intermediate aspirants.\nObjective: Build accuracy first, then speed.\n\nNon-negotiable quality rules:\n1) Keep explanations simple, practical, and exam-focused.\n2) Avoid generic theory and puzzle fluff; focus on high-yield question patterns.\n3) Teach approach selection (which method to apply quickly).\n4) Include elimination techniques and validation checks.\n5) Keep all logic steps internally consistent and error-free.\n\nOutput format (must follow exactly):\n\n# {{topic}}\n\n## Concept Explanation\n- Explain core logic from beginner level.\n- Show how this topic appears in RBI Assistant Prelims.\n\n## Key Concepts / Rules\n- Provide key rules, structures, and solving frameworks.\n- Highlight signal words/pattern triggers seen in questions.\n\n## Shortcuts and Tricks\n- Include quick inference methods, option elimination, diagram/notation shortcuts, and time-saving strategies.\n- Mention common traps in reasoning questions.\n\n## Solved Examples\n- Provide 5 solved examples at RBI Assistant level.\n- For each example: Question -> Setup/representation -> Step-by-step deductions -> Final answer.\n\n## Common Mistakes\n- List at least 8 common mistakes with one prevention tip each.\n\n## Memory Techniques / Mnemonics\n- Provide mnemonics/anchors for directions, order, blood relation symbols, coding patterns, etc. where applicable.\n\n## Flashcards\n- Create 12 concise flashcards in Q/A format for revision.\n\n## MCQs\n- Create 15-20 MCQs at RBI Assistant Prelims level.\n- Include diverse types relevant to {{topic}}/{{subtopics}} (inequality, syllogism, coding-decoding, blood relation, direction sense, alphanumeric series, ranking/order, seating/puzzle basics, input-output patterns).\n- Use 4 options (A/B/C/D) per question.\n\n### Answer Key with Explanations\n- Give correct option + short reasoning path for each question.\n- Keep explanations concise but logically complete.\n\nAdditional constraints:\n- Prefer bank-exam language and structure.\n- Balance direct and moderate questions.\n- Avoid overlong puzzle sets unless topic explicitly requires them.`;\nreturn $input.all().map(item => ({ json: { ...item.json, sectionPrompt: PROMPT } }));"
+      },
+      "id": "set-prompt-ra",
+      "name": "Set Prompt RA",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const PROMPT = `You are an expert RBI Assistant Prelims English mentor and banking exam content creator.\n\nGenerate exam-ready study material in clean Markdown for:\n- Section: {{section}}\n- Topic: {{topic}}\n- Subtopics: {{subtopics}}\n\nTarget exam: RBI Assistant Prelims English section.\nAudience: Beginner to intermediate aspirants.\nObjective: Improve accuracy, speed, and pattern recognition for bank exam English.\n\nNon-negotiable quality rules:\n1) Keep explanations simple but strictly exam-oriented.\n2) Focus on high-frequency RBI/IBPS-style question forms.\n3) Avoid literary theory and unnecessary grammar depth.\n4) Emphasize error spotting, option elimination, and context-based solving.\n5) Ensure grammar/vocabulary examples are natural and exam-like.\n\nOutput format (must follow exactly):\n\n# {{topic}}\n\n## Concept Explanation\n- Explain the concept in simple language with exam relevance.\n- Show how it appears in RBI Assistant questions.\n\n## Key Concepts / Rules\n- List core grammar/vocab/comprehension rules and decision cues.\n- Include quick checks for tense, subject-verb agreement, modifiers, connectors, tone, and context as relevant.\n\n## Shortcuts and Tricks\n- Provide fast elimination strategies, grammar checkpoints, contextual clue methods, and reading-speed techniques.\n\n## Solved Examples\n- Provide 5 solved examples in RBI Assistant style.\n- For each: Question -> Option analysis -> Rule/context justification -> Final answer.\n\n## Common Mistakes\n- List at least 8 common mistakes with correction tips.\n\n## Memory Techniques / Mnemonics\n- Provide practical mnemonics for confusing word pairs, grammar triggers, or vocabulary retention where applicable.\n\n## Flashcards\n- Create 12 concise flashcards in Q/A format.\n- Include rule-based and vocabulary-based revision cards.\n\n## MCQs\n- Create 15-20 MCQs at RBI Assistant difficulty.\n- Use topic-relevant formats (error detection, sentence improvement, fill in the blanks, cloze logic, para-jumble, word usage, reading comprehension mini-set if relevant).\n- Use 4 options (A/B/C/D).\n\n### Answer Key with Explanations\n- Give correct option and short explanation for each question.\n- Explain why the chosen option is right and why close distractors are wrong (briefly).\n\nAdditional constraints:\n- Use concise, exam-style sentences.\n- Keep vocabulary moderate and banking-exam appropriate.\n- Prioritize practical scoring techniques.`;\nreturn $input.all().map(item => ({ json: { ...item.json, sectionPrompt: PROMPT } }));"
+      },
+      "id": "set-prompt-el",
+      "name": "Set Prompt EL",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const PROMPT = `You are an expert RBI Assistant General Awareness mentor, with specialization in Banking, Economy, and Current Affairs for Indian bank exams.\n\nGenerate exam-ready study material in clean Markdown for:\n- Section: {{section}}\n- Topic: {{topic}}\n- Subtopics: {{subtopics}}\n\nTarget exam: RBI Assistant Prelims GA section.\nAudience: Beginner to intermediate aspirants.\nObjective: Build fast recall of high-yield facts and application to MCQs.\n\nNon-negotiable quality rules:\n1) Keep explanations simple, factual, and exam-focused.\n2) Prioritize high-probability banking/economy/current-affairs points.\n3) Avoid long essay-style background unless essential for understanding.\n4) Include memory frameworks for retaining facts.\n5) Ensure factual correctness and clear categorization.\n\nOutput format (must follow exactly):\n\n# {{topic}}\n\n## Concept Explanation\n- Explain the topic in easy language and exam context.\n- Clarify why this area is asked in RBI Assistant.\n\n## Key Concepts / Rules\n- Present key facts, definitions, institutions, terms, and frameworks.\n- Include RBI-related angles, financial terms, government schemes, and economy linkages when relevant.\n\n## Shortcuts and Tricks\n- Provide recall hacks, category grouping, timeline tricks, and association methods.\n\n## Solved Examples\n- Provide 5 solved exam-style examples (fact-based + concept-linked).\n- For each: Question -> Quick recall/logic path -> Correct answer.\n\n## Common Mistakes\n- List at least 8 mistakes aspirants make (confusing institutions, dates, reports, schemes, abbreviations, etc.) with prevention tips.\n\n## Memory Techniques / Mnemonics\n- Provide strong mnemonic devices for lists, committees, headquarters, tags, timelines, indices, and abbreviations where applicable.\n\n## Flashcards\n- Create 15 concise flashcards in Q/A format for rapid revision.\n\n## MCQs\n- Create 15-20 MCQs at RBI Assistant difficulty.\n- Mix static banking/economy and current-affairs style according to {{topic}}/{{subtopics}}.\n- Use 4 options (A/B/C/D).\n\n### Answer Key with Explanations\n- Provide correct option and brief factual explanation for each.\n- Include one-line memory cue per answer where possible.\n\nAdditional constraints:\n- Keep content India-centric and bank-exam relevant.\n- Use concise bullet-driven style for retention.\n- If topic is current affairs, present items in a clear month/event/entity structure.`;\nreturn $input.all().map(item => ({ json: { ...item.json, sectionPrompt: PROMPT } }));"
+      },
+      "id": "set-prompt-ga",
+      "name": "Set Prompt GA",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const PROMPT = `You are an expert RBI Assistant Computer Knowledge mentor and banking exam content creator.\n\nGenerate exam-ready study material in clean Markdown for:\n- Section: {{section}}\n- Topic: {{topic}}\n- Subtopics: {{subtopics}}\n\nTarget exam: RBI Assistant (Computer Awareness/Knowledge asked in bank exam patterns).\nAudience: Beginner to intermediate aspirants.\nObjective: Rapid conceptual clarity + recall for objective-type questions.\n\nNon-negotiable quality rules:\n1) Explain in very simple language while staying exam-oriented.\n2) Focus on high-yield objective concepts, not deep engineering detail.\n3) Highlight confusing look-alike terms frequently asked in exams.\n4) Include memory aids and quick differentiation tables where useful.\n5) Keep all definitions and facts accurate.\n\nOutput format (must follow exactly):\n\n# {{topic}}\n\n## Concept Explanation\n- Explain basics clearly with bank exam relevance.\n- Map concept to common question forms.\n\n## Key Concepts / Rules\n- List definitions, classifications, protocols, components, commands, shortcuts, and security terms relevant to {{topic}}/{{subtopics}}.\n\n## Shortcuts and Tricks\n- Include memory hooks, elimination tips, and quick comparison rules.\n- Add practical keyboard/command/network/security recall tricks where applicable.\n\n## Solved Examples\n- Provide 5 solved exam-style examples.\n- For each: Question -> Quick logic/recall path -> Final answer.\n\n## Common Mistakes\n- List at least 8 common mistakes with prevention tips.\n\n## Memory Techniques / Mnemonics\n- Provide mnemonics for generations of computers, protocol layers, file extensions, shortcut keys, storage units, malware differences, etc. as applicable.\n\n## Flashcards\n- Create 12 concise flashcards in Q/A format.\n\n## MCQs\n- Create 15-20 MCQs at RBI Assistant difficulty.\n- Cover objective patterns such as hardware/software, MS Office, internet/networking, operating systems, DBMS basics, cybersecurity basics, abbreviations/full forms, and digital banking tech terms (as relevant).\n- Use 4 options (A/B/C/D).\n\n### Answer Key with Explanations\n- Provide correct option for each MCQ.\n- Add brief explanation with quick differentiator from close options.\n\nAdditional constraints:\n- Use concise exam-style wording.\n- Prioritize frequently repeated bank-exam computer topics.\n- Avoid over-technical jargon unless essential.`;\nreturn $input.all().map(item => ({ json: { ...item.json, sectionPrompt: PROMPT } }));"
+      },
+      "id": "set-prompt-ck",
+      "name": "Set Prompt CK",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $replace($replace($replace($json.sectionPrompt, '{{section}}', $json.Section), '{{topic}}', $json.Topic), '{{subtopics}}', $json.Subtopics) }}",
+              "role": "system"
+            },
+            {
+              "content": "Generate ONLY the study material parts in clean Markdown. Do NOT include Flashcards or MCQs yet.\n\nParts to generate: Concept Explanation, Key Concepts/Rules, Shortcuts and Tricks, Solved Examples (5), Common Mistakes (at least 8), Memory Techniques/Mnemonics.\n\nSection: {{ $json.Section }}\nTopic: {{ $json.Topic }}\nSubtopics: {{ $json.Subtopics }}",
+              "role": "user"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "id": "generate-study-material",
+      "name": "Generate Study Material",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        1440,
+        320
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUR_OPENAI_CREDENTIAL_ID",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "study-material",
+              "name": "studyMaterialMarkdown",
+              "value": "={{ $json.message?.content ?? $json.text ?? $json.choices?.[0]?.message?.content ?? $json.output ?? $json.response }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "includeOtherFields": true
+        }
+      },
+      "id": "save-study-material",
+      "name": "Save Study Material",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1680,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $replace($replace($replace($json.sectionPrompt, '{{section}}', $json.Section), '{{topic}}', $json.Topic), '{{subtopics}}', $json.Subtopics) }}",
+              "role": "system"
+            },
+            {
+              "content": "Generate ONLY the Flashcards section in clean Markdown for this topic. Use 12 concise Q/A format flashcards. Section: {{ $json.Section }}, Topic: {{ $json.Topic }}. Output under a ## Flashcards heading.",
+              "role": "user"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "id": "generate-flashcards",
+      "name": "Generate Flashcards",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        1920,
+        320
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUR_OPENAI_CREDENTIAL_ID",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "flashcards",
+              "name": "flashcardsMarkdown",
+              "value": "={{ $json.message?.content ?? $json.text ?? $json.choices?.[0]?.message?.content ?? $json.output ?? $json.response }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "includeOtherFields": true
+        }
+      },
+      "id": "save-flashcards",
+      "name": "Save Flashcards",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2160,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $replace($replace($replace($json.sectionPrompt, '{{section}}', $json.Section), '{{topic}}', $json.Topic), '{{subtopics}}', $json.Subtopics) }}",
+              "role": "system"
+            },
+            {
+              "content": "Generate ONLY the MCQs section and Answer Key in clean Markdown. Create 15-20 MCQs at RBI Assistant difficulty with 4 options (A/B/C/D). Then provide ### Answer Key with Explanations. Section: {{ $json.Section }}, Topic: {{ $json.Topic }}, Subtopics: {{ $json.Subtopics }}. Output under ## MCQs heading.",
+              "role": "user"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "id": "generate-mcqs",
+      "name": "Generate MCQs",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        2400,
+        320
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUR_OPENAI_CREDENTIAL_ID",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "mcqs",
+              "name": "mcqsMarkdown",
+              "value": "={{ $json.message?.content ?? $json.text ?? $json.choices?.[0]?.message?.content ?? $json.output ?? $json.response }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "includeOtherFields": true
+        }
+      },
+      "id": "save-mcqs",
+      "name": "Save MCQs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2640,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge study material + flashcards + MCQs into one Markdown and prepare for Drive upload\nconst item = $input.first().json;\nconst study = item.studyMaterialMarkdown || '';\nconst flashcards = item.flashcardsMarkdown || '';\nconst mcqs = item.mcqsMarkdown || '';\nconst fullMarkdown = [study, '---', '## Flashcards', flashcards, '---', '## MCQs', mcqs].filter(Boolean).join('\\n\\n');\nconst topicFileName = (item.Topic || 'topic').replace(/\\s+/g, '_').replace(/[^a-zA-Z0-9_\\-]/g, '');\nconst buffer = Buffer.from(fullMarkdown, 'utf8');\nconst binaryData = await this.helpers.prepareBinaryData(buffer, `${topicFileName}.md`, 'text/markdown');\nreturn [{ json: { topicFileName, fullMarkdown }, binary: { data: binaryData } }];"
+      },
+      "id": "merge-markdown",
+      "name": "Merge Markdown",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "name": "={{ $json.topicFileName }}.md",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "",
+          "mode": "id"
+        },
+        "binaryData": true,
+        "binaryPropertyName": "data"
+      },
+      "id": "save-to-drive",
+      "name": "Save to Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3120,
+        320
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "YOUR_GOOGLE_DRIVE_CREDENTIAL_ID",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cron Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Syllabus",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Syllabus": {
+      "main": [
+        [
+          {
+            "node": "Prepare Topics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Topics": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "Switch (Section Prompt)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch (Section Prompt)": {
+      "main": [
+        [
+          {
+            "node": "Set Prompt QA",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Prompt RA",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Prompt EL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Prompt GA",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Prompt CK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt QA": {
+      "main": [
+        [
+          {
+            "node": "Generate Study Material",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt RA": {
+      "main": [
+        [
+          {
+            "node": "Generate Study Material",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt EL": {
+      "main": [
+        [
+          {
+            "node": "Generate Study Material",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt GA": {
+      "main": [
+        [
+          {
+            "node": "Generate Study Material",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt CK": {
+      "main": [
+        [
+          {
+            "node": "Generate Study Material",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Study Material": {
+      "main": [
+        [
+          {
+            "node": "Save Study Material",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Study Material": {
+      "main": [
+        [
+          {
+            "node": "Generate Flashcards",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Flashcards": {
+      "main": [
+        [
+          {
+            "node": "Save Flashcards",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Flashcards": {
+      "main": [
+        [
+          {
+            "node": "Generate MCQs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate MCQs": {
+      "main": [
+        [
+          {
+            "node": "Save MCQs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save MCQs": {
+      "main": [
+        [
+          {
+            "node": "Merge Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Markdown": {
+      "main": [
+        [
+          {
+            "node": "Save to Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsRequired": true
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "active": false
+}
