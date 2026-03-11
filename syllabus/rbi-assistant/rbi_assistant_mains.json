@@ -1,0 +1,224 @@
+{
+  "exam": "RBI Assistant",
+  "phase": "Mains",
+  "reference_books": [
+    "Banking/GA books",
+    "Testbook/guidely syllabus"
+  ],
+  "sections": [
+    {
+      "name": "General Awareness",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "History, Geography of India",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Ancient/medieval/modern history",
+            "Physical geography, states, rivers, climate",
+            "Freedom movement",
+            "Post-independence"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Socio-economic policy development",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Planning",
+            "NITI Aayog",
+            "Poverty alleviation",
+            "Employment",
+            "Sustainable development",
+            "Welfare schemes"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Indian Economy",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "GDP, growth",
+            "Sectors (agriculture, industry, services)",
+            "Inflation (WPI, CPI)",
+            "Fiscal and monetary policy",
+            "Budget basics"
+          ]
+        },
+        {
+          "number": 4,
+          "topic": "State, countries, institutions",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Capitals, currencies",
+            "International organisations (UN, IMF, World Bank, WTO)",
+            "National institutions (RBI, SEBI, ministries)"
+          ]
+        },
+        {
+          "number": 5,
+          "topic": "Science",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Basic physics, chemistry, biology",
+            "Inventions",
+            "Space",
+            "Environment and ecology"
+          ]
+        },
+        {
+          "number": 6,
+          "topic": "Current affairs and Politics in India",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "National/state politics",
+            "Elections",
+            "Bills, ordinances",
+            "Constitutional amendments",
+            "Last 6–12 months news"
+          ]
+        },
+        {
+          "number": 7,
+          "topic": "Human Right issues",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Fundamental rights",
+            "DPSP",
+            "Key judgements",
+            "International conventions"
+          ]
+        },
+        {
+          "number": 8,
+          "topic": "Books and Authors",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Famous books",
+            "Awards (Booker, Jnanpith)",
+            "Author–book matching"
+          ]
+        },
+        {
+          "number": 9,
+          "topic": "Banking and Financial Awareness",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Banking awareness",
+            "Financial awareness",
+            "Bank management",
+            "Money and banking",
+            "Infrastructure and project finance",
+            "Management control system",
+            "RBI functions",
+            "Monetary policy",
+            "Recent banking sector developments"
+          ]
+        },
+        {
+          "number": 10,
+          "topic": "Static Awareness",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Currencies and capitals",
+            "Sports abbreviations",
+            "Government schemes and policies",
+            "Agriculture and rural development"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Computer Knowledge",
+      "topics": [
+        {
+          "number": 1,
+          "topic": "History of Computers",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Abacus to modern computers",
+            "Generations (1st–5th)",
+            "Inventors",
+            "Types: mainframe, mini, micro, supercomputer"
+          ]
+        },
+        {
+          "number": 2,
+          "topic": "Basics of Hardware and Software",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "CPU, RAM, ROM, storage",
+            "Input/output devices",
+            "System vs application software",
+            "Firmware"
+          ]
+        },
+        {
+          "number": 3,
+          "topic": "Devices",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Peripherals: keyboard, mouse, monitor, printer, scanner",
+            "Storage devices",
+            "Ports and connectors"
+          ]
+        },
+        {
+          "number": 4,
+          "topic": "Virus and Hacking",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Malware, virus, trojan, spyware",
+            "Antivirus",
+            "Hacking and cybersecurity basics",
+            "Safe practices"
+          ]
+        },
+        {
+          "number": 5,
+          "topic": "Languages",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Programming languages (low-level, high-level)",
+            "Compiler vs interpreter",
+            "Basics of coding"
+          ]
+        },
+        {
+          "number": 6,
+          "topic": "MS-Office",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Word (editing, formatting, mail merge)",
+            "Excel (formulas, charts, pivot)",
+            "PowerPoint (slides, animation)",
+            "Outlook basics"
+          ]
+        },
+        {
+          "number": 7,
+          "topic": "Operating System",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Functions of OS",
+            "Process, memory, file management",
+            "Windows/Linux basics",
+            "GUI vs CLI"
+          ]
+        },
+        {
+          "number": 8,
+          "topic": "Internet",
+          "used_for_study_material": false,
+          "sub_topics": [
+            "Web, browser, URL, HTTP/HTTPS",
+            "Email",
+            "Search engines",
+            "Cloud basics",
+            "Netiquette and security"
+          ]
+        }
+      ]
+    }
+  ]
+}
