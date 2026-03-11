@@ -1,0 +1,265 @@
+// RBI Assistant Prelims syllabus (from syllabus/rbi-assistant/rbi_assistant_prelims.json)
+// No Google Sheet needed. To change topics, edit this array or replace with HTTP Request to your JSON.
+const SYLLABUS_ITEMS = [
+  {
+    "Section": "English Language",
+    "Topic": "Comprehension",
+    "Subtopics": "Reading comprehension, Objective comprehension, Inference, Main idea, Vocabulary in context"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Subject Verb Agreement",
+    "Subtopics": "Number, Person, Collective nouns, Indefinite pronouns, Compound subjects"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Cloze Test",
+    "Subtopics": "Fill in the blanks (single/multiple), Context-based word choice"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Sentence Rearrangement",
+    "Subtopics": "Jumbled sentences/paragraphs, Sequence of sentences, Connectors"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Tenses",
+    "Subtopics": "Present, past, future (simple, continuous, perfect, perfect continuous)"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Synonyms & Antonyms",
+    "Subtopics": "Vocabulary, Word meaning, Contextual usage"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Spelling Correction",
+    "Subtopics": "Commonly misspelt words, Spelling rules"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "One-word Substitution",
+    "Subtopics": "Single word for phrase, Foreign words and expressions"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Sentence Completion",
+    "Subtopics": "Fillers, Sentence improvement, Selecting correct sentence"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Direct & Indirect Speech",
+    "Subtopics": "Narration, Reported speech, Transformation"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Grammar",
+    "Subtopics": "Articles, Modals, Parts of Speech, Active & Passive Voice, Kinds of Sentences and Clauses, Spotting Errors, Punctuation, Contractions"
+  },
+  {
+    "Section": "English Language",
+    "Topic": "Verbal",
+    "Subtopics": "Paronyms & Homonyms, Idioms & Phrases"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Profit and Loss",
+    "Subtopics": "CP, SP, Profit/loss %, Discount, Marked price, Successive discount"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Data Interpretation",
+    "Subtopics": "Tables, Bar graphs, Pie charts, Line graphs, Caselets, Mixed DI"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Quadratic Equation",
+    "Subtopics": "Roots, Comparison of roots, Condition for roots, Word problems"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Number Series",
+    "Subtopics": "Wrong number series, Missing number, Pattern-based series"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Algebra",
+    "Subtopics": "Linear equations, Identities, Simplification of expressions"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Averages",
+    "Subtopics": "Mean, Weighted average, Age-based problems"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Percentages",
+    "Subtopics": "Conversion, Increase/decrease, Population, Application"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Mensuration 2D",
+    "Subtopics": "Area and perimeter of square, rectangle, circle, triangle, parallelogram"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Interest",
+    "Subtopics": "Simple interest, Compound interest, Instalments"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Simplification",
+    "Subtopics": "BODMAS, Brackets, Surds, Decimals"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Ratio & Proportion",
+    "Subtopics": "Ratio, Proportion, Proportional division"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Time & Work",
+    "Subtopics": "Work efficiency, Man-days, Work and wages"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Time & Distance",
+    "Subtopics": "Speed, Relative speed, Trains, Average speed"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Boats & Streams",
+    "Subtopics": "Upstream, Downstream, Speed in still water, Current"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Pipes & Cisterns",
+    "Subtopics": "Inlet, Outlet, Filling and emptying"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Number System",
+    "Subtopics": "Place value, Divisibility, Prime numbers, LCM and HCF basics"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "HCF & LCM",
+    "Subtopics": "Highest common factor, Least common multiple, Application in word problems"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Problem on Ages",
+    "Subtopics": "Present age, Past/future age, Ratio of ages"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Partnership",
+    "Subtopics": "Profit sharing, Capital ratio, Time and investment"
+  },
+  {
+    "Section": "Quantitative Aptitude",
+    "Topic": "Data Sufficiency",
+    "Subtopics": "Statement adequacy, Two statements, Quantitative reasoning"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Odd Man Out",
+    "Subtopics": "Classification, Verbal and non-verbal, Figure series"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Blood Relation",
+    "Subtopics": "Family tree, Coded relations, Generation-based"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Coding and Decoding",
+    "Subtopics": "Letter/number coding, Conditional coding, Matrix coding"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Analogy",
+    "Subtopics": "Verbal analogy, Alphabetical analogy, Number analogy"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Direction Based questions",
+    "Subtopics": "Direction sense test, Distance, Shadow-based"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Seating Arrangements",
+    "Subtopics": "Linear, Circular, Rectangular, Facing in/out, Order-based"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Symbols",
+    "Subtopics": "Symbol substitution, Symbol notation, Inequalities"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Number Series",
+    "Subtopics": "Numerical series, Letter series, Alphanumeric"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Syllogism",
+    "Subtopics": "Categorical statements, Conclusions, Valid/invalid inference"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Logic-based Venn diagrams",
+    "Subtopics": "Set relationships, Overlapping sets, Logical deduction"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Input-Output",
+    "Subtopics": "Machine input, Shifting, Arrangement based on rules"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Clocks",
+    "Subtopics": "Angle between hands, Time calculation, Gain and loss"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Calendar",
+    "Subtopics": "Day calculation, Odd days, Leap year"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Statement & Arguments",
+    "Subtopics": "Strong/weak arguments, Relevance, Conclusion"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Statement & Assumptions",
+    "Subtopics": "Implicit assumptions, Valid assumption, Invalid assumption"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Course of Action",
+    "Subtopics": "Suggested action, Feasibility, Logical follow-up"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Cause & Effect",
+    "Subtopics": "Cause-effect relationship, Independent statements, Effect-cause"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Decision Making",
+    "Subtopics": "Situation analysis, Option evaluation, Best course"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Puzzles",
+    "Subtopics": "Order ranking, Scheduling, Floor-based, Box-based, Comparison"
+  },
+  {
+    "Section": "Reasoning Ability",
+    "Topic": "Non-Verbal Reasoning",
+    "Subtopics": "Figure analogy, Classification, Series, Cubes and dice, Mirror/water images, Embedded figures"
+  }
+];
+return SYLLABUS_ITEMS.map(item => ({ json: item }));
